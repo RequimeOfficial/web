@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<!-- Kode HTML5 responsif dengan Tailwind CSS, SEO optimized, dan interaktif -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Requime | Portfolio Ultra-Premium Futuristic & Neumorphic</title>
+    <meta name="description" content="Requime adalah portofolio digital ultra-premium yang menampilkan proyek-proyek mutakhir dengan desain futuristik, neumorphic, dan elegan. Jelajahi karya kami dan hubungi kami untuk solusi digital kelas dunia.">
+    <meta name="keywords" content="requime, portfolio, futuristic design, neumorphic, webgl, gsap animation, web developer, digital artist, premium website, 3d portfolio, Yilzi Digital Store, portfolio ultrapremium">
+    <meta name="author" content="Yilzi Digital Store">
+
+    <!-- Open Graph Meta Tags (for Social Sharing) -->
+    <meta property="og:title" content="Requime | Portfolio Ultra-Premium Futuristic & Neumorphic">
+    <meta property="og:description" content="Jelajahi portofolio digital futuristik Requime. Menampilkan proyek inovatif dengan animasi canggih dan desain elegan.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/111827/00f2fe.png?text=REQUIME"> <!-- Ganti dengan URL gambar Anda -->
+    <meta property="og:url" content="https://requime.example.com"> <!-- Ganti dengan URL website Anda -->
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://via.placeholder.com/32x32/00f2fe/111827?text=R" type="image/png">
+
+    <!-- CDNs & Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark-gradient text-gray-200 font-body overflow-x-hidden">
+
+    <!-- Header & Navigasi -->
+    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-3xl font-heading font-extrabold tracking-wider logo-text">REQUIME</a>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <!-- Tombol Mode Gelap/Terang -->
+                <button id="theme-toggle" class="neumorphic-toggle">
+                    <i class="fas fa-sun theme-icon-sun"></i>
+                    <i class="fas fa-moon theme-icon-moon"></i>
+                </button>
+
+                <!-- Tombol Hamburger (Mobile) -->
+                <button id="menu-btn" class="md:hidden z-50">
+                    <span class="hamburger-top"></span>
+                    <span class="hamburger-middle"></span>
+                    <span class="hamburger-bottom"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-screen bg-dark-gradient-reversed flex-col items-center justify-center space-y-8 text-2xl font-bold hidden">
+        <a href="#hero" class="mobile-nav-link">Home</a>
+        <a href="#projects" class="mobile-nav-link">Projects</a>
+        <a href="#services" class="mobile-nav-link">Services</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+            <div id="webgl-bg" class="absolute top-0 left-0 w-full h-full z-0"></div>
+            <div class="relative z-10 p-6 animate-fade-in">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold font-heading hero-title">
+                    <span class="hero-char">D</span><span class="hero-char">E</span><span class="hero-char">S</span><span class="hero-char">I</span><span class="hero-char">G</span><span class="hero-char">N</span><span class="hero-char">I</span><span class="hero-char">N</span><span class="hero-char">G</span>
+                    <span class="block neon-text-pink">THE FUTURE</span>
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-300 hero-subtitle">
+                    We build ultra-premium digital experiences that merge futuristic aesthetics with intuitive design.
+                </p>
+                <a href="#projects" class="btn btn-primary mt-8">Explore Our Work</a>
+            </div>
+        </section>
+
+        <!-- Services Section (3D Cards) -->
+        <section id="services" class="py-24 px-6">
+            <div class="container mx-auto">
+                <h2 class="section-title reveal-text">Our Services</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12">
+                    <!-- Service Card 1 -->
+                    <div class="service-card reveal-card">
+                        <div class="service-card-inner">
+                            <div class="service-card-icon"><i class="fas fa-code"></i></div>
+                            <h3 class="text-2xl font-bold font-heading mt-6 mb-3">Web Development</h3>
+                            <p class="text-gray-400">Crafting high-performance, responsive websites with the latest technologies for a seamless user experience.</p>
+                        </div>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="service-card reveal-card">
+                        <div class="service-card-inner">
+                             <div class="service-card-icon"><i class="fas fa-palette"></i></div>
+                            <h3 class="text-2xl font-bold font-heading mt-6 mb-3">UI/UX Design</h3>
+                            <p class="text-gray-400">Designing intuitive and visually stunning interfaces that captivate users and drive engagement.</p>
+                        </div>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="service-card reveal-card">
+                        <div class="service-card-inner">
+                            <div class="service-card-icon"><i class="fas fa-rocket"></i></div>
+                            <h3 class="text-2xl font-bold font-heading mt-6 mb-3">Digital Strategy</h3>
+                            <p class="text-gray-400">Developing data-driven strategies to elevate your brand's digital presence and achieve business goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (Masonry) -->
+        <section id="projects" class="py-24 px-6 bg-dark-layer">
+            <div class="container mx-auto">
+                <h2 class="section-title reveal-text">Featured Projects</h2>
+                <div id="masonry-gallery" class="mt-12">
+                    <!-- Project Item 1 -->
+                    <div class="masonry-item reveal-card">
+                        <img data-src="https://images.unsplash.com/photo-1555774698-0b77e0ab232f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZnV0dXJpc3RpYyxkYXJrfHx8fHx8MTcxNTgyODkyMg&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" class="lazyload w-full h-full object-cover" alt="Project Cyberspace">
+                        <div class="masonry-overlay">
+                            <h3 class="font-heading text-xl font-bold">Project Cyberspace</h3>
+                            <p class="text-sm">Web Application</p>
+                        </div>
+                    </div>
+                     <!-- Project Item 2 (taller) -->
+                    <div class="masonry-item reveal-card" style="grid-row: span 2;">
+                        <img data-src="https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8bmVvbixtb2RlbHx8fHx8MTcxNTgyOTAzOA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" class="lazyload w-full h-full object-cover" alt="Project Neon">
+                        <div class="masonry-overlay">
+                             <h3 class="font-heading text-xl font-bold">Neon Noir</h3>
+                            <p class="text-sm">Branding & Identity</p>
+                        </div>
+                    </div>
+                    <!-- Add 6 more items with varying spans -->
+                    <div class="masonry-item reveal-card">
+                        <img data-src="https://images.unsplash.com/photo-1519791883288-dc81a69f7d5c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8YWJzdHJhY3QsZGFya3x8fHx8fDE3MTU4Mjg5NTI&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" class="lazyload w-full h-full object-cover" alt="Project Abstracta">
+                         <div class="masonry-overlay">
+                            <h3 class="font-heading text-xl font-bold">Abstracta</h3>
+                            <p class="text-sm">3D Visualization</p>
+                        </div>
+                    </div>
+                    <div class="masonry-item reveal-card" style="grid-row: span 2;">
+                        <img data-src="https://images.unsplash.com/photo-1617994422223-3a958b43457a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZGFyayx0ZWNobm9sb2d5fHx8fHx8MTcxNTgyOTA4Mg&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" class="lazyload w-full h-full object-cover" alt="Project Dark Tech">
+                        <div class="masonry-overlay">
+                            <h3 class="font-heading text-xl font-bold">Dark Tech</h3>
+                            <p class="text-sm">Mobile App</p>
+                        </div>
+                    </div>
+                     <div class="masonry-item reveal-card">
+                        <img data-src="https://images.unsplash.com/photo-1507608442083-9a3d4554aa45?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8cGFzdGVsLGN5YmVycHVua3x8fHx8fDE3MTU4MjkxMjI&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" class="lazyload w-full h-full object-cover" alt="Project Pastel Punk">
+                        <div class="masonry-overlay">
+                            <h3 class="font-heading text-xl font-bold">Pastel Punk</h3>
+                            <p class="text-sm">E-commerce Site</p>
+                        </div>
+                    </div>
+                    <div class="masonry-item reveal-card">
+                        <img data-src="https://images.unsplash.com/photo-1599228577303-3683d7353915?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Z3JhZGllbnQsYXJ0fHx8fHx8MTcxNTgyOTE1MA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" class="lazyload w-full h-full object-cover" alt="Project Gradient Flow">
+                        <div class="masonry-overlay">
+                            <h3 class="font-heading text-xl font-bold">Gradient Flow</h3>
+                            <p class="text-sm">Interactive Art</p>
+                        </div>
+                    </div>
+                    <div class="masonry-item reveal-card">
+                        <img data-src="https://images.unsplash.com/photo-1620641788421-7a1c3622630d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8M2QsZmx1aWR8fHx8fHwxNzE1ODI5MTc1&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" class="lazyload w-full h-full object-cover" alt="Project Fluid">
+                         <div class="masonry-overlay">
+                            <h3 class="font-heading text-xl font-bold">Fluid Dynamics</h3>
+                            <p class="text-sm">WebGL Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 px-6">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="section-title reveal-text">Let's Create Together</h2>
+                <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto reveal-text">Have a project in mind or just want to say hello? Drop us a line.</p>
+                
+                <form id="contact-form" class="mt-12 text-left" novalidate>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="form-group reveal-card">
+                            <input type="text" id="name" name="name" class="form-input" placeholder=" " required>
+                            <label for="name" class="form-label">Your Name</label>
+                            <p class="form-error-msg">Please enter a valid name.</p>
+                        </div>
+                        <div class="form-group reveal-card">
+                            <input type="email" id="email" name="email" class="form-input" placeholder=" " required>
+                            <label for="email" class="form-label">Your Email</label>
+                             <p class="form-error-msg">Please enter a valid email address.</p>
+                        </div>
+                    </div>
+                    <div class="form-group mt-6 reveal-card">
+                        <textarea id="message" name="message" rows="5" class="form-input" placeholder=" " required></textarea>
+                        <label for="message" class="form-label">Your Message</label>
+                        <p class="form-error-msg">Message cannot be empty.</p>
+                    </div>
+                    <div class="text-center mt-8 reveal-card">
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </div>
+                    <div id="form-feedback" class="mt-6 text-center"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900/50 backdrop-blur-sm py-12">
+        <div class="container mx-auto text-center text-gray-400">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="https://instagram.com/requime_" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com/@requime_" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="https://wa.me/6287729850738" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://facebook.com/requimedigitalstore" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+            </div>
+            <p class="font-bold logo-text">🌟 REQUIME DIGITAL STORE 🌟</p>
+            <p class="mt-4 text-sm">&copy; <span id="current-year"></span> Requime. All Rights Reserved.</p>
+            <p class="text-xs mt-2">Powered by <a href="#" class="font-bold hover:text-cyan-400 transition-colors">Yilzi Digital Store</a></p>
+        </div>
+    </footer>
+
+    <!-- Tombol Scroll to Top -->
+    <button id="scroll-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 opacity-0 translate-y-4">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Script Kustom -->
+    <script src="script.js" defer></script>
+</body>
+</html>
