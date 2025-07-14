@@ -1,0 +1,148 @@
+/* CSS kustom untuk menyempurnakan Tailwind dan menambahkan efek visual modern */
+
+/* --- Variabel Warna & Font Dasar --- */
+:root {
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --color-primary-dark: #0A0A10;
+    --color-primary-light: #111118;
+    --color-accent: #00F2FE;
+    --color-text-light: #E0E0E0;
+    --color-text-dark: #A0A0A0;
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-error: #FF4747;
+}
+
+/* --- Penyesuaian Global & Scrollbar --- */
+body {
+    background-color: var(--color-primary-dark);
+}
+
+/* Scrollbar Kustom Futuristik */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-primary-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #00c2cc;
+}
+
+/* --- Efek Glassmorphism untuk Header saat scroll --- */
+#header.header-scrolled {
+    background-color: rgba(10, 10, 16, 0.7); /* bg-primary-dark/70 */
+    backdrop-filter: blur(10px);
+    --webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* --- Gaya & Animasi Navigasi --- */
+.nav-link {
+    @apply relative text-sm uppercase tracking-wider font-semibold text-text-dark transition-colors duration-300;
+}
+.nav-link:hover {
+    @apply text-white;
+}
+.nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300;
+}
+.nav-link:hover::after {
+    @apply w-full;
+}
+.nav-link-mobile {
+    @apply nav-link text-xl;
+}
+
+/* --- Pola Latar Belakang Hero --- */
+.bg-grid-pattern {
+    background-image: linear-gradient(var(--color-border) 1px, transparent 1px), 
+                      linear-gradient(to right, var(--color-border) 1px, var(--color-primary-dark) 1px);
+    background-size: 50px 50px;
+}
+
+/* --- Tombol Utama (Call to Action) --- */
+.btn-primary {
+    @apply px-8 py-3 bg-accent text-primary-dark font-bold font-heading rounded-md transition-all duration-300 transform;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+}
+.btn-primary:hover {
+    @apply bg-white scale-105;
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
+}
+
+/* --- Judul Section --- */
+.section-heading {
+    @apply text-3xl md:text-4xl font-heading font-extrabold text-center uppercase tracking-wider text-white;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+.section-heading::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 w-20 h-1 bg-accent transform -translate-x-1/2;
+    box-shadow: 0 0 10px var(--color-accent);
+}
+
+/* --- Kartu Keahlian & Proyek (Glassmorphism) --- */
+.skill-card, .project-card {
+    background: rgba(26, 26, 46, 0.5); /* Warna lebih terang sedikit */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid var(--color-border);
+    @apply rounded-lg transition-all duration-300;
+}
+
+.skill-card {
+    @apply p-6 flex flex-col items-center justify-center text-center cursor-pointer;
+}
+
+.skill-card:hover, .project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-accent);
+    box-shadow: 0 8px 30px rgba(0, 242, 254, 0.1);
+}
+
+/* --- Link Proyek --- */
+.project-link {
+    @apply text-text-dark hover:text-accent transition-colors duration-300 text-sm;
+}
+
+/* --- Form Kontak --- */
+.form-label {
+    @apply block text-text-dark text-sm font-bold mb-2;
+}
+.form-input {
+    @apply w-full px-4 py-3 bg-primary-dark border-2 border-transparent rounded-md transition-all duration-300 outline-none;
+}
+.form-input:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+}
+.form-input.form-input-error {
+    border-color: var(--color-error);
+}
+.form-error {
+    @apply text-red-500 text-xs mt-1 hidden;
+}
+.form-feedback-success {
+    background-color: rgba(0, 242, 254, 0.1);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+}
+.form-feedback-error {
+    background-color: rgba(255, 71, 71, 0.1);
+    border: 1px solid var(--color-error);
+    color: var(--color-error);
+}
+
+
+/* --- Footer & Social Links --- */
+.social-link {
+    @apply text-text-dark hover:text-accent hover:scale-125 transform transition-all duration-300;
+}
